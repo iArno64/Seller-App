@@ -5,7 +5,7 @@ export default function Counter({ startValue = 0 }) {
 
   return (
     <>
-      <p>{startValue}</p>
+      <p>{currentValue}</p>
       <button
         onClick={() => {
           setValue(currentValue + 1);
