@@ -1,11 +1,13 @@
-import Counter from "./Components/Counter";
+import { Button, CssBaseline, ThemeProvider } from "@mui/material";
+import Header from "./Components/Header";
+import theme from "./theme";
 
-function App() {
+export default function App() {
   return (
-    <>
-      <Counter startValue={3} step={2} />
-    </>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Header />
+      <Button>Kick Me</Button>
+    </ThemeProvider>
   );
 }
-
-export default App;
