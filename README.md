@@ -6,16 +6,25 @@
 
 Install dependencies
 
-shell
+```shell
 yarn
+```
 
 
 start the dev server 
 
-shell
+```shell
 yarn start 
+```
 
 Make your changes
+
+
+Commit your changes 
+
+```shell
+yarn commit 
+```
 
 ## powered by CRA
 
