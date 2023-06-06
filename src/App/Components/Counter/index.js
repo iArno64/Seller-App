@@ -1,18 +1,13 @@
-import { useState } from "react";
+import { useCounter } from "react-use";
 
-export default function Counter({ startValue = 0 }) {
-  const [currentValue, setValue] = useState(startValue);
+export default function Counter({ startValue = 0, step = 1 }) {
+  const [currentValue, { dec, inc }] = useCounter(startValue, null, startValue);
 
   return (
     <>
       <p>{currentValue}</p>
-      <button
-        onClick={() => {
-          setValue(currentValue + 1);
-        }}
-      >
-        Click Me
-      </button>
+      <button onClick={() => inc(step)}>+{step}</button>
+      <button onClick={() => dec(step)}>-{step}</button>
     </>
   );
 }
