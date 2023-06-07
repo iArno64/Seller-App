@@ -1,0 +1,13 @@
+import { Image } from "mui-image";
+import { string, shape } from "prop-types";
+
+export default function ProductImage({ row }) {
+  return <Image src={row.name} alt={row.name} width={150} duration={250} />;
+}
+
+ProductImage.protoTypes = {
+  row: shape({
+    imageUrl: string,
+    name: string,
+  }),
+};
