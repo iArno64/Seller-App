@@ -1,20 +1,21 @@
 import { Chip } from "@mui/material";
-import { ProductType } from "../../../utils/types";
+import { oneOf } from "prop-types";
 
 const labels = {
   new: "Nouveau",
   used: "Occasion",
 };
-export default function Condition({ row: { condition } }) {
+
+export default function Condition({ value }) {
   return (
     <Chip
-      label={labels[String(condition)]}
+      label={labels[String(value)]}
       color="primary"
-      variant={condition === "used" ? "outlined" : ""}
+      variant={value === "used" ? "outlined" : ""}
     />
   );
 }
 
-Condition.protoTypes = {
-  row: ProductType,
+Condition.propTypes = {
+  value: oneOf(["new", "used"]),
 };

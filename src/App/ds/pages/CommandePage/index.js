@@ -1,1 +1,3 @@
-export default function Commandepage() {}
+export default function CommandePage() {
+  return "commande";
+}

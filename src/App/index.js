@@ -1,13 +1,19 @@
 import theme from "./theme";
-import Router from "./router";
+import router from "./router";
+
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { RouterProvider } from "react-router-dom/dist";
+import { RouterProvider } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const client = new QueryClient();
 
 export default function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <RouterProvider router={Router}></RouterProvider>
-    </ThemeProvider>
+    <QueryClientProvider client={client}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }

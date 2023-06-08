@@ -2,10 +2,10 @@ import { Image } from "mui-image";
 import { string, shape } from "prop-types";
 
 export default function ProductImage({ row }) {
-  return <Image src={row.name} alt={row.name} width={150} duration={250} />;
+  return <Image src={row.imageUrl} alt={row.name} width={150} duration={250} />;
 }
 
-ProductImage.protoTypes = {
+ProductImage.propTypes = {
   row: shape({
     imageUrl: string,
     name: string,

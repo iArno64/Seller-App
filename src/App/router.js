@@ -1,20 +1,21 @@
 import { createBrowserRouter } from "react-router-dom";
-
-import Commandepage from "./ds/pages/CommandePage";
-import ErrorPage from "./ds/pages/ErrorPage";
-import ProductPage from "./ds/pages/ProductPage";
+import { CommandePage, ErrorPage, HomePage, ProductsPage } from "./ds/pages";
 import { Layout } from "./ds/templates";
 
 export default createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    errorElement: <ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage />,
     children: [
-      { index: true, element: <ProductPage /> },
+      { index: true, element: <HomePage /> },
       {
-        path: "commande",
-        element: <Commandepage></Commandepage>,
+        path: "/produits",
+        element: <ProductsPage />,
+      },
+      {
+        path: "/commandes",
+        element: <CommandePage />,
       },
     ],
   },

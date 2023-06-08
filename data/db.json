@@ -90,5 +90,16 @@
       "condition": "new",
       "stock": 9
     }
+  ],
+  "commandes": [
+    {
+      "description": "Récepteurs de télévision à haute définition 819 lignes, donnant une image très nette et d'un contraste agréable ne fatiguant pas la vue, le montage de la partie radio donne un son absolument remarquable.",
+      "id": "d0b199e8-61f4-48fb-afe1-ad423b700556",
+      "name": "Électronique Doux Lard",
+      "imageUrl": "https://picsum.photos/seed/033xgdIP/640/640",
+      "price": 47.64,
+      "condition": "new",
+      "stock": 0
+    }
   ]
 }

@@ -1,9 +1,7 @@
+import { Box } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import { Condition } from "../../atoms/Condition";
-import { Price } from "../../atoms/Price";
-import { ProductImage } from "../../atoms/ProductImage";
-
-const rows = [{}];
+import { useProducts } from "../../../../hooks";
+import { Condition, Price, ProductImage } from "../../atoms";
 
 const myColumns = [
   {
@@ -32,11 +30,21 @@ const myColumns = [
   {
     field: "stock",
     headerName: "Stock Dispo",
-    describe: "",
     width: 45,
   },
 ];
 
 export default function ProductPage() {
-  return <DataGrid columns={myColumns} rows={rows}></DataGrid>;
+  const { isLoading, products } = useProducts();
+
+  return (
+    <Box sx={{ height: "100%", width: "100%", minHeight: 400, maxHeight: 800 }}>
+      <DataGrid
+        loading={isLoading}
+        columns={myColumns}
+        disableRowSelectionOnClick={true}
+        rows={products || []}
+      ></DataGrid>
+    </Box>
+  );
 }
