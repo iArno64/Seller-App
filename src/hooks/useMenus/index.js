@@ -1,13 +1,13 @@
 import { useQuery } from "react-query";
 import { HttpClientDomainA } from "../../HttpClient";
 
-export default function useProducts() {
+export default function useMenus() {
   const queryResponse = useQuery(
-    ["myProductsApi"],
-    async () => await HttpClientDomainA.get("products").json()
+    ["myMenuApi"],
+    async () => await HttpClientDomainA.get("menus").json()
   );
 
-  return { ...queryResponse, products: queryResponse.data };
+  return { ...queryResponse, menus: queryResponse.data };
 }
 
 // export default function useProducts() {

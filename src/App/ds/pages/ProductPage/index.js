@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import { useProducts } from "../../../../hooks";
+import { useProductsApi } from "../../../../hooks";
 import { Condition, Price, ProductImage } from "../../atoms";
 
 const myColumns = [
@@ -35,7 +35,7 @@ const myColumns = [
 ];
 
 export default function ProductPage() {
-  const { isLoading, products } = useProducts();
+  const { isLoading, products } = useProductsApi();
 
   return (
     <Box sx={{ height: "100%", width: "100%", minHeight: 400, maxHeight: 800 }}>

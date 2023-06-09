@@ -21,15 +21,6 @@ export default function Header({ title, caption, imageUrl }) {
             duration={25}
           />
         </Link>
-        {/* <Link
-          to={"/"}
-          component={RRLink}
-          src={imageUrl}
-          alt={title}
-          width={500}
-          height={70}
-          duration={25}
-        /> */}
         <Typography
           variant="h3"
           component="h1"

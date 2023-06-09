@@ -1,3 +1,4 @@
-import ky from "ky";
+// TODO : gestion des multiples URL
 
-export default ky.create({ prefixUrl: "http://localhost:3004" });
+export { default as HttpClientDomainA } from "./ApiDomaineA";
+export { default as HttpClientDomainB } from "./ApiDomaineB";

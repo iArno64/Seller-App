@@ -1,10 +1,10 @@
 import { useQuery } from "react-query";
-import { HttpClientDomainA } from "../../HttpClient";
+import { HttpClientDomainB } from "../../HttpClient";
 
-export default function useProducts() {
+export default function useOffers() {
   const queryResponse = useQuery(
     ["myProductsApi"],
-    async () => await HttpClientDomainA.get("products").json()
+    async () => await HttpClientDomainB.get("offers").json()
   );
 
   return { ...queryResponse, products: queryResponse.data };
