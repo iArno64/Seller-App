@@ -4,9 +4,10 @@ import Menu from "../../molecules/Menu";
 
 // TODO ?? : recup from api
 const itemsMenu = [
-  { name: "produit", route: "/produits" },
-  { name: "Commande", route: "/commandes" },
-  { name: "Rapport", route: "/Rapport" },
+  { name: "produits", route: "/produits" },
+  { name: "Commandes", route: "/commandes" },
+  { name: "Rapports", route: "/Rapport" },
+  { name: "Offres", route: "/Offres" },
   { name: "Messages", route: "/Messages" },
 ];
 

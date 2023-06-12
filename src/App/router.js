@@ -2,10 +2,11 @@ import { createBrowserRouter } from "react-router-dom";
 import {
   CommandePage,
   HomePage,
-  OffrePage,
   ProductPage,
   ErrorOffresPage,
   ErrorStandardPage,
+  OffreDetailPage,
+  OffresPage,
 } from "./ds/pages";
 
 import { Layout, LayoutSide } from "./ds/templates";
@@ -37,7 +38,7 @@ export default createBrowserRouter([
       },
       // formaterles url avec param ?
       {
-        path: "/produits/produit",
+        path: "/produits/:id",
         key: "detailProduit",
         element: <ProductPage />,
       },
@@ -45,9 +46,16 @@ export default createBrowserRouter([
   },
   {
     path: "/offres",
-    element: <LayoutSide />,
+    element: <Layout />,
     errorElement: <ErrorOffresPage />,
-    children: [{ index: true, key: "offres", element: <OffrePage /> }],
+    children: [
+      { index: true, key: "offres", element: <OffresPage /> },
+      {
+        key: "offres",
+        path: "/offres/:id",
+        element: <OffreDetailPage />,
+      },
+    ],
   },
 
   // TODO : comment définri un menu dynamique , affichage conditionnel
