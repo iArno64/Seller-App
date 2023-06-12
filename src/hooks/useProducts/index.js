@@ -1,13 +1,26 @@
 import { useQuery } from "react-query";
 import { HttpClientDomainA } from "../../HttpClient";
 
-export default function useProducts() {
+export default function useProducts({ produitId } = {}) {
+  const baseKey = "myProductsApi";
+  // TODO  a mettre ailleurs => recup from routing ?
+  const baseUrl = "products";
+
+  console.log(`useProduct${produitId}`);
+
+  const queryKey = produitId ? [baseKey, { produitId }] : [baseKey];
+  const productApiUrl = produitId ? `${baseUrl}/${produitId}` : baseUrl;
+
   const queryResponse = useQuery(
-    ["myProductsApi"],
-    async () => await HttpClientDomainA.get("products").json()
+    queryKey,
+    async () => await HttpClientDomainA.get(productApiUrl).json()
   );
 
-  return { ...queryResponse, products: queryResponse.data };
+  const dataReturned = produitId
+    ? { product: queryResponse.data }
+    : { products: queryResponse.data || [] };
+
+  return { ...queryResponse, ...dataReturned };
 }
 
 // export default function useProducts() {

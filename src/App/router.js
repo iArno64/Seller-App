@@ -5,11 +5,13 @@ import {
   ProductPage,
   ErrorOffresPage,
   ErrorStandardPage,
-  OffreDetailPage,
   OffresPage,
+  OffreDetailPage,
+  ProductDetailPage,
 } from "./ds/pages";
 
-import { Layout, LayoutSide } from "./ds/templates";
+//import { Layout, LayoutSide } from "./ds/templates";
+import { Layout } from "./ds/templates";
 
 export default createBrowserRouter([
   {
@@ -19,44 +21,50 @@ export default createBrowserRouter([
     children: [
       { index: true, key: "home", element: <HomePage /> },
       {
-        path: "/commandes",
-        key: "home",
-        element: <CommandePage />,
-      },
-    ],
-  },
-  // // TODO : ???  définir des pages a layout différent sans les rattacher a la page
-  {
-    path: "/produits",
-    element: <LayoutSide />,
-    errorElement: <ErrorStandardPage />,
-    children: [
-      {
-        index: true,
-        key: "produit",
+        key: " ProduitsListing",
+        path: "produits",
         element: <ProductPage />,
-      },
-      // formaterles url avec param ?
-      {
-        path: "/produits/:id",
-        key: "detailProduit",
-        element: <ProductPage />,
+        errorElement: <ErrorOffresPage />,
+        children: [
+          {
+            key: "produitDetail",
+            path: ":produitId",
+            element: <ProductDetailPage />,
+          },
+        ],
       },
     ],
   },
   {
-    path: "/offres",
+    key: "commandesListing",
+    path: "commandes",
+    element: <CommandePage />,
+  },
+  // formaterles url avec param ?
+  {
+    path: "offres",
+    key: "offreListing",
     element: <Layout />,
-    errorElement: <ErrorOffresPage />,
     children: [
-      { index: true, key: "offres", element: <OffresPage /> },
       {
-        key: "offres",
-        path: "/offres/:id",
-        element: <OffreDetailPage />,
+        element: <OffresPage />,
+        children: [
+          {
+            key: "offreDetail",
+            path: ":offreId",
+            element: <OffreDetailPage />,
+          },
+        ],
       },
     ],
   },
+  // {
+  //   path: "offres/:offreId",
+  //   key: "detailOffre",
+  //   errorElement: ErrorOffresPage,
+  //   element: <OffreDetailPage />,
+  // },
+  // // TODO : ???  définir des pages a layout différent sans les rattacher a la page
 
   // TODO : comment définri un menu dynamique , affichage conditionnel
   // TODO : recuperation d'une Url en fonction d'une clé

@@ -4,9 +4,9 @@ import { Image } from "mui-image";
 import { Link, useParams } from "react-router-dom";
 import { useProductsApi } from "../../../../../hooks";
 
-export default function OfferDetailRoute() {
-  const { offreId } = useParams();
-  const { isLoading, product } = useProductsApi({ offreId });
+export default function ProductDetailRoute() {
+  const { produitId } = useParams();
+  const { isLoading, product } = useProductsApi({ produitId });
 
   if (isLoading) return <CircularProgress />;
 
